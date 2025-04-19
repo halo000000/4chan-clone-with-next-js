@@ -1,9 +1,7 @@
-
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { MoreVertical, Trash2 } from 'lucide-react';
+import React, {useState} from 'react';
+import {Button} from '@/components/ui/button';
+import {Textarea} from '@/components/ui/textarea';
+import {MoreVertical, Trash2} from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,7 +22,7 @@ interface ThreadProps {
   onDeleteReply: (threadId: string, replyId: string) => void;
 }
 
-const Thread: React.FC<ThreadProps> = ({ thread, onAddReply, onDeleteThread, onDeleteReply }) => {
+const Thread: React.FC<ThreadProps> = ({thread, onAddReply, onDeleteThread, onDeleteReply}) => {
   const [replyContent, setReplyContent] = useState('');
   const [showFullContent, setShowFullContent] = useState(false);
 
@@ -53,19 +51,19 @@ const Thread: React.FC<ThreadProps> = ({ thread, onAddReply, onDeleteThread, onD
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
-              <MoreVertical className="h-4 w-4" />
+              <MoreVertical className="h-4 w-4"/>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => onDeleteThread(thread.id)}>
-              <Trash2 className="mr-2 h-4 w-4" />
+              <Trash2 className="mr-2 h-4 w-4"/>
               Delete Thread
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
       {thread.image && (
-        <img src={thread.image} alt="Thread Image" className="mt-2 rounded max-h-48 object-contain" />
+        <img src={thread.image} alt="Thread Image" className="mt-2 rounded max-h-48 object-contain"/>
       )}
       <p className="mt-2">{shortContent}</p>
       {thread.content.length > 200 && (
@@ -83,12 +81,12 @@ const Thread: React.FC<ThreadProps> = ({ thread, onAddReply, onDeleteThread, onD
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="h-8 w-8 p-0">
                     <span className="sr-only">Open menu</span>
-                    <MoreVertical className="h-4 w-4" />
+                    <MoreVertical className="h-4 w-4"/>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem onClick={() => onDeleteReply(thread.id, reply.id)}>
-                    <Trash2 className="mr-2 h-4 w-4" />
+                    <Trash2 className="mr-2 h-4 w-4"/>
                     Delete Reply
                   </DropdownMenuItem>
                 </DropdownMenuContent>
