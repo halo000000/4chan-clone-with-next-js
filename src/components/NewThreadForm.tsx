@@ -55,6 +55,7 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onCreateThread, onClose }
               onChange={(e) => setTitle(e.target.value)}
               required
               className="mt-1 w-full"
+              autoFocus
             />
           </div>
           <div>
@@ -70,7 +71,7 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onCreateThread, onClose }
             />
           </div>
           <div>
-            <label htmlFor="image" className="block text-sm font-medium text-foreground">
+            <label htmlFor="image" className="block text-sm font-medium text-slate-700">
               Image (Optional)
             </label>
             <Input

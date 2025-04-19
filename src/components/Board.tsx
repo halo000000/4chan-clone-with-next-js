@@ -64,7 +64,7 @@ const Board = () => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Board</h2>
         <button
-          className="bg-primary text-white rounded px-4 py-2 hover:bg-primary-foreground transition-colors"
+          className="bg-primary text-white rounded px-4 py-2 hover:bg-primary/80 transition-colors"
           onClick={() => setShowNewThreadForm(true)}
         >
           Create Thread
