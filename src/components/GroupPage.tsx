@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog"
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
+import {useRouter} from 'next/navigation';
 
 interface GroupType {
   id: string;
@@ -46,6 +47,7 @@ const GroupPage: React.FC<GroupPageProps> = ({group}) => {
   const [newThreadImage, setNewThreadImage] = useState<File | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const [open, setOpen] = React.useState(false)
+  const router = useRouter();
 
   useEffect(() => {
     const storedThreads = localStorage.getItem(`threads-${group.id}`);
@@ -115,6 +117,9 @@ const GroupPage: React.FC<GroupPageProps> = ({group}) => {
 
   return (
     <div className="container mx-auto p-4">
+      <Button variant="outline" onClick={() => router.push('/groups')}>
+        Back to Groups
+      </Button>
       <h2 className="text-2xl font-bold mb-4">Posts in {group.name}</h2>
 
       <Dialog open={open} onOpenChange={setOpen}>
@@ -200,3 +205,5 @@ const GroupPage: React.FC<GroupPageProps> = ({group}) => {
 };
 
 export default GroupPage;
+
+    
